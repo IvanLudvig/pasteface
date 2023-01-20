@@ -1,0 +1,3 @@
+deepface==0.0.75
+opencv_python==4.7.0.68
+pynput==1.7.6
