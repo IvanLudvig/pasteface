@@ -3,6 +3,7 @@ import cv2
 from deepface import DeepFace
 import numpy as np
 
+HOTKEY = '<ctrl>+<alt>+f'
 CAMERA_ID = 0
 
 data = np.recfromcsv('data.csv', delimiter=',')
@@ -44,7 +45,7 @@ def for_canonical(f):
     return lambda k: f(l.canonical(k))
 
 
-hotkey = keyboard.HotKey(keyboard.HotKey.parse('<ctrl>+<alt>+f'), run)
+hotkey = keyboard.HotKey(keyboard.HotKey.parse(HOTKEY), run)
 with keyboard.Listener(on_press=for_canonical(hotkey.press), on_release=for_canonical(hotkey.release)) as l:
     l.join()
 
